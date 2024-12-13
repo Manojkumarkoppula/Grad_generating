@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>gread</title>
+    <style>
+       #main1{
+        background:cyan;
+        width:350px;
+        margin:auto;
+        padding-left:20px;
+        padding-top:20px;
+        line-height:30px;
+        transition:1s;
+        border-radius:5px;
+        margin-top:30px;
+        height:500px;
+       }
+       #main1:hover{
+         box-shadow:0 0 10px rgb(216, 177, 19);
+         border-radius: 20px;
+       }
+       button{
+        background-image: linear-gradient(to right, red , yellow);
+        border: none;
+        width:100px;
+        height:25px;
+        border-radius:5px;
+        margin-top:15px;
+        transition: 1s;
+       }
+       button:hover{
+        background-image:linear-gradient(to left, red , yellow);;
+        border-radius: 6px;
+        box-shadow:0 0 20px gray;
+       }
+       .input-group {
+           display: flex;
+           align-items: center;
+           margin-bottom: 10px;
+       }
+       .input-group label {
+           width: 100px; 
+           margin-right: 10px; 
+       }
+       .input-group input {
+           padding: 4px;
+           border-radius: 3px;
+           border: 1px solid #ccc;
+       }
+       output{
+        color:rgb(232, 157, 19);
+        margin-left:50px;
+       }
+       
+    </style>
+</head>
+<body>
+    <div id="main1">
+        <h2>Marks Calculator</h2>
+        <div class="input-group">
+            <label>Roll No</label>
+            <input type="text" id="rollno">
+        </div>
+        <div class="input-group">
+            <label>Name:</label>
+            <input type="text" id="name">
+        </div>
+        <h3>Marks</h3>
+        <div class="input-group">
+            <label>HTML:</label>
+            <input type="text" id="html">
+        </div>
+        <div class="input-group">
+            <label>CSS</label>
+            <input type="text" id="css">
+        </div>
+        <div class="input-group">
+            <label>Java Script</label>
+            <input type="text" id="javascript">
+        </div>
+        <div class="input-group">
+            <label>Bootstrap</label>
+            <input type="text" id="bootstrap">
+        </div>
+        <button onclick="getResult()">Result</button><br>
+        <output id="total"></output><br>
+        <output id="average"></output><br>
+        <output id="grade"></output>
+    </div>
+    <script>
+        function getResult() {
+            let hm, cs, js, bs, grd, tol, avg;
+            hm = +html.value;
+            cs = +css.value;
+            js = +javascript.value;
+            bs = +bootstrap.value;
+
+            tol = hm + cs + js + bs;
+            avg = tol / 4;
+            if (hm > 39 && cs > 39 && js > 39 && bs > 39) {
+                grd = avg >= 90 ? 'A+' : avg >= 80 ? 'A' : avg >= 70 ? 'B+' :
+                    avg >= 60 ? 'B' : avg >= 50 ? 'c' : 'D';
+            }
+            else {
+                grd = hm<39?'HTML fail':cs<39?'CSS fail':js<39?'JS fail':'BS fail';
+
+            }
+            total.value = "Total Marks:" + tol;
+            average.value = "Avg Marks:" + avg;
+            grade.value = "Grad Marks:" + grd;
+        }
+    </script>
+</body>
+
+</html>
